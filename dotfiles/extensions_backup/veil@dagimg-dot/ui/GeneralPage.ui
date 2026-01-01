@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <template class="VeilGeneralPage" parent="AdwPreferencesPage">
+    <property name="title" translatable="true">General</property>
+    <property name="icon_name">preferences-system-symbolic</property>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="true">Visibility Settings</property>
+        <property name="description" translatable="true">Configure how Veil manages panel item visibility</property>
+        <child>
+          <object class="AdwComboRow" id="saveState">
+            <property name="title" translatable="true">Save State</property>
+            <property name="subtitle" translatable="true">Save and restore visibility state on extension restart</property>
+            <property name="model">
+              <object class="GtkStringList">
+                <items>
+                  <item>Unsave</item>
+                  <item>Save</item>
+                </items>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwComboRow" id="defaultVisibility">
+            <property name="title" translatable="true">Default Visibility</property>
+            <property name="subtitle" translatable="true">Default visibility state when state is not saved</property>
+            <property name="model">
+              <object class="GtkStringList">
+                <items>
+                  <item>Visible</item>
+                  <item>Hidden</item>
+                </items>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="true">Icons</property>
+        <property name="description" translatable="true">Customize the indicator icons</property>
+        <child>
+          <object class="AdwActionRow" id="openIconRow">
+            <property name="title" translatable="true">Open Icon</property>
+            <property name="subtitle" translatable="true">Icon shown when items are hidden</property>
+            <child type="suffix">
+              <object class="GtkButton" id="openIconButton">
+                <property name="icon-name">folder-open-symbolic</property>
+                <property name="valign">center</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child type="suffix">
+              <object class="GtkButton" id="openIconClearButton">
+                <property name="icon-name">edit-clear-symbolic</property>
+                <property name="valign">center</property>
+                <property name="tooltip-text">Reset to default</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="closeIconRow">
+            <property name="title" translatable="true">Close Icon</property>
+            <property name="subtitle" translatable="true">Icon shown when items are visible</property>
+            <child type="suffix">
+              <object class="GtkButton" id="closeIconButton">
+                <property name="icon-name">folder-open-symbolic</property>
+                <property name="valign">center</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child type="suffix">
+              <object class="GtkButton" id="closeIconClearButton">
+                <property name="icon-name">edit-clear-symbolic</property>
+                <property name="valign">center</property>
+                <property name="tooltip-text">Reset to default</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="true">Interaction Mode</property>
+        <property name="description" translatable="true">Choose how to interact with the Veil indicator</property>
+        <child>
+          <object class="AdwComboRow" id="interactionMode">
+            <property name="title" translatable="true">Mode</property>
+            <property name="subtitle" translatable="true">Click to toggle manually or hover to show temporarily</property>
+            <property name="model">
+              <object class="GtkStringList">
+                <items>
+                  <item>Click</item>
+                  <item>Hover</item>
+                </items>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwSwitchRow" id="autoHideEnabled">
+            <property name="title" translatable="true">Enable Auto Hide</property>
+            <property name="subtitle" translatable="true">Automatically hide items after a specified duration</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwSpinRow" id="autoHideDuration">
+            <property name="title" translatable="true">Auto Hide Duration (seconds)</property>
+            <property name="subtitle" translatable="true">Time before automatically hiding items</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">1</property>
+                <property name="upper">300</property>
+                <property name="step-increment">1</property>
+                <property name="page-increment">10</property>
+                <property name="value">30</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwSwitchRow" id="hoverHideOnLeave">
+            <property name="title" translatable="true">Hide on Leave</property>
+            <property name="subtitle" translatable="true">Immediately hide items when mouse leaves the indicator</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwSpinRow" id="hoverDuration">
+            <property name="title" translatable="true">Hover Duration (seconds)</property>
+            <property name="subtitle" translatable="true">Time before hiding items when hover ends</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">1</property>
+                <property name="upper">60</property>
+                <property name="step-increment">1</property>
+                <property name="page-increment">5</property>
+                <property name="value">5</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="true">Animations</property>
+        <property name="description" translatable="true">Smooth fade animations when hiding/showing items</property>
+        <child>
+          <object class="AdwSwitchRow" id="animationEnabled">
+            <property name="title" translatable="true">Enable Animations</property>
+            <property name="subtitle" translatable="true">Use smooth fade transitions</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwSpinRow" id="animationDuration">
+            <property name="title" translatable="true">Duration (milliseconds)</property>
+            <property name="subtitle" translatable="true">Animation speed (lower is faster)</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">50</property>
+                <property name="upper">1000</property>
+                <property name="step-increment">10</property>
+                <property name="page-increment">50</property>
+                <property name="value">200</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="true">Debug Settings</property>
+        <child>
+          <object class="AdwComboRow" id="loggingLevel">
+            <property name="title" translatable="true">Logging Level</property>
+            <property name="subtitle" translatable="true">Controls verbosity of extension logging</property>
+            <property name="model">
+              <object class="GtkStringList">
+                <items>
+                  <item>error</item>
+                  <item>warn</item>
+                  <item>info</item>
+                  <item>debug</item>
+                </items>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwEntryRow" id="journalctlCommand">
+            <property name="title" translatable="true">Extension Logs Command</property>
+            <property name="text">journalctl /usr/bin/gnome-shell -f -o cat</property>
+            <property name="editable">false</property>
+            <property name="show-apply-button">false</property>
+          </object>
+        </child>
+      </object>
+    </child>
+
+  </template>
+</interface>

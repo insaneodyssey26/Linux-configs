@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <template class="VeilItemsPage" parent="AdwPreferencesPage">
+    <property name="title" translatable="true">Panel Items</property>
+    <property name="icon_name">view-list-symbolic</property>
+    <child>
+      <object class="AdwPreferencesGroup" id="itemsGroup">
+        <property name="title" translatable="true">Visible Items</property>
+        <property name="description" translatable="true">Configure which panel items should remain visible when hiding. Toggle switches to show/hide items.</property>
+        <property name="header-suffix">
+          <object class="GtkButton" id="resetButton">
+            <property name="label" translatable="true">Reset All</property>
+            <property name="css-classes">destructive-action</property>
+            <property name="valign">center</property>
+          </object>
+        </property>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: 2021 Romain Vigier <contact AT romainvigier.fr>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 1A4.5 4.5 0 0 0 0 5.5c.003 1.249.753 2.31 1.441 3.29C3.173 11.251 8 15 8 15s4.827-3.748 6.559-6.21c.688-.98 1.438-2.041 1.441-3.29A4.5 4.5 0 0 0 11.5 1C9 1 8.399 3.001 8 3S7 1 4.5 1"/>
+</svg>
