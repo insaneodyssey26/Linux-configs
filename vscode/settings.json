@@ -1,0 +1,62 @@
+{
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "workbench.startupEditor": "none",
+    "editor.fontFamily": "Liberation Mono, 'Droid Sans Mono', monospace",
+    "workbench.colorTheme": "Aura Dark",
+    "workbench.activityBar.location": "top",
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 15,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "expand",
+    "telemetry.telemetryLevel": "off",
+    "mdb.sendTelemetry": false,
+    "telemetry.feedback.enabled": false,
+    "explorer.confirmDelete": false,
+    "chat.tools.terminal.autoApprove": {
+        "npm run build": true,
+        "cp": true,
+        "./gradlew": true,
+        "/^npm run compile$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "npm update": true,
+        "sed": true,
+        "npm test": true,
+        "npm run dev": true,
+        "/^npx tsc --noEmit$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "chat.agent.maxRequests": 100,
+    "whatTheCode.privacyMode": true,
+    "chat.tools.urls.autoApprove": {
+        "https://beyondchats.com": {
+            "approveRequest": true,
+            "approveResponse": false
+        }
+    },
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "/usr/bin/fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "fish"
+}
