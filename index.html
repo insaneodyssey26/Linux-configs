@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Configs Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+            </div>
+            <div class="terminal-title">linux-configs ~ terminal</div>
+        </div>
+        <div class="terminal-body">
+            <div class="command-line">
+                <span class="prompt">$</span> <span class="command">welcome to linux configs</span>
+            </div>
+            <div class="output">
+                <p>Initializing system configurations...</p>
+                <p>Loading dotfiles...</p>
+                <br>
+                <p><span class="success">✓</span> Fish Shell configured</p>
+                <p><span class="success">✓</span> Fastfetch ready</p>
+                <p><span class="success">✓</span> GNOME settings applied</p>
+                <p><span class="success">✓</span> Extensions loaded</p>
+                <p><span class="success">✓</span> VSCode optimized</p>
+                <br>
+                <p>System ready. Type 'help' for commands.</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>This repository contains curated Linux configuration files for a productive development environment. Each config is crafted for efficiency and minimalism.</p>
+            <div class="code-block">
+                <pre><code>// Example: Fish shell alias
+alias ll='ls -alF'
+alias ..='cd ..'
+alias grep='grep --color=auto'</code></pre>
+            </div>
+        </section>
+
+        <section id="configs">
+            <h2>Configurations</h2>
+            <div class="config-grid">
+                <div class="config-item terminal-window">
+                    <div class="window-header">config.fish</div>
+                    <div class="window-content">
+                        <pre><code class="fish">set -g fish_greeting ""
+set -gx EDITOR nvim
+
+alias ll 'ls -alF'
+alias grep 'grep --color=auto'
+
+function nn
+    rnote &
+end</code></pre>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/config.fish">View Full Config</a>
+                </div>
+                <div class="config-item terminal-window">
+                    <div class="window-header">fastfetch/config.jsonc</div>
+                    <div class="window-content">
+                        <pre><code class="json">{
+  "display": {
+    "separator": " → "
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "display",
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "font",
+    "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk",
+    "battery",
+    "poweradapter",
+    "locale"
+  ]
+}</code></pre>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/fastfetch/config.jsonc">View Full Config</a>
+                </div>
+                <div class="config-item terminal-window">
+                    <div class="window-header">GNOME Extensions</div>
+                    <div class="window-content">
+                        <pre><code class="bash">CoverflowAltTab@palatis.blogspot.com
+blur-my-shell@aunetx
+tilingshell@ferrarodomenico.com
+compiz-windows-effect@hermes83.github.com
+gjsosk@vishram1123.com
+mediacontrols@cliffniff.github.com
+copyous@boerdereinar.dev
+gsconnect@andyholmes.github.io</code></pre>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/Gnome/Extensions/extensions.txt">View Full List</a>
+                </div>
+                <div class="config-item terminal-window">
+                    <div class="window-header">VSCode Settings</div>
+                    <div class="window-content">
+                        <pre><code class="json">{
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6,
+  "workbench.colorTheme": "GitHub Dark",
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
+  "files.autoSave": "afterDelay"
+}</code></pre>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/vscode/settings.json">View Full Settings</a>
+                </div>
+                <div class="config-item terminal-window">
+                    <div class="window-header">Setup Script</div>
+                    <div class="window-content">
+                        <pre><code class="bash">#!/bin/bash
+
+mkdir -p ~/.config/fish
+mkdir -p ~/.config/fastfetch
+
+ln -sf ~/dotfiles/config.fish ~/.config/fish/config.fish
+ln -sf ~/dotfiles/fastfetch/config.jsonc ~/.config/fastfetch/config.jsonc
+
+dconf load / < ~/dotfiles/gnome_settings.ini</code></pre>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/setup/setup.sh">View Full Script</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2>Installation</h2>
+            <div class="terminal-command">
+                <div class="command-line">
+                    <span class="prompt">$</span> <span class="command">git clone https://github.com/insaneodyssey26/Linux-configs.git ~/dotfiles</span>
+                </div>
+                <div class="command-line">
+                    <span class="prompt">$</span> <span class="command">cd ~/dotfiles && ./setup/setup.sh</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built by Masum</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

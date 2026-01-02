@@ -2,6 +2,8 @@
 
 This repository contains my personal Linux configuration files (dotfiles) for setting up a customized development environment.
 
+**[View the Showcase Website](index.html)** - A minimal website showcasing the configs and their functions.
+
 ## Quick Setup
 
 1. Clone this repo to `~/dotfiles`:
