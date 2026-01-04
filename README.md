@@ -33,10 +33,37 @@ The script will:
 
 ## Requirements
 
-- Bash
-- Fish shell
-- dconf (for GNOME)
-- VSCode Insiders
-- Pacman (for package installation on Arch-based systems)
+### Core Dependencies
+- **Bash** (for setup script)
+- **Fish shell** (main shell configuration)
+- **dconf** (for GNOME settings)
+- **VSCode Insiders** (for editor configuration)
+
+### Fish Shell Tools (Required for aliases to work)
+- **[eza](https://github.com/eza-community/eza)** - Modern replacement for `ls` with icons and colors
+- **[bat](https://github.com/sharkdp/bat)** - Modern replacement for `cat` with syntax highlighting
+- **[fastfetch](https://github.com/fastfetch-cli/fastfetch)** - System information display tool
+- **[zoxide](https://github.com/ajeetdsouza/zoxide)** - Smart directory jumping (replaces `cd`)
+- **[starship](https://starship.rs/)** - Cross-shell prompt customization
+- **[fzf](https://github.com/junegunn/fzf)** - Fuzzy finder for command-line
+- **[rnote](https://github.com/flxzt/rnote)** - Note-taking application (for `nn` function)
+
+### Installation Commands (Arch Linux)
+```bash
+# Install core tools
+sudo pacman -S fish dconf code-insiders
+
+# Install Fish shell dependencies
+sudo pacman -S eza bat fastfetch zoxide starship fzf rnote
+
+# Initialize tools
+zoxide init fish | source
+starship init fish | source
+fzf --fish | source
+```
+
+### Optional Dependencies
+- **GNOME Shell** (for desktop settings and extensions)
+- **Pacman** (for automated package installation in setup script)
 
 Restart your terminal or log out/in after running the setup script to see all changes.

@@ -69,14 +69,40 @@ alias grep='grep --color=auto'</code></pre>
                     <div class="window-header">config.fish</div>
                     <div class="window-content">
                         <pre><code class="fish">set -g fish_greeting ""
-set -gx EDITOR nvim
 
-alias ll 'ls -alF'
-alias grep 'grep --color=auto'
+if status is-interactive
+    fastfetch --config small.jsonc
+end
+
+abbr -a ls 'eza --icons --group-directories-first'
+abbr -a ll 'eza -la --icons --group-directories-first --git'
+abbr -a tree 'eza --tree --icons'
+abbr -a cat 'bat'
+abbr -a afetch 'fastfetch --config small.jsonc'
+abbr -a grep 'grep --color=auto'
+
+zoxide init fish | source
+starship init fish | source
+
+fzf --fish | source
 
 function nn
-    rnote &
-end</code></pre>
+    set -l name (test -n "$argv[1]"; and echo "$argv[1]"; or echo "note")
+    set -l filename "$name.rnote"
+
+    if test -f ~/Templates/Template.rnote
+        cp ~/Templates/Template.rnote "./$filename"
+        rnote "./$filename" &
+        disown
+    else
+        echo "Error: Template.rnote not found in ~/Templates/"
+    end
+end
+
+alias cd='z'
+
+bind \t accept-autosuggestion
+bind ctrl-h backward-kill-word</code></pre>
                     </div>
                     <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
                     <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/config.fish">View Full Config</a>
@@ -85,13 +111,19 @@ end</code></pre>
                     <div class="window-header">fastfetch/config.jsonc</div>
                     <div class="window-content">
                         <pre><code class="json">{
-  "display": {
-    "separator": " → "
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "blackarch",
+    "type": "auto"
   },
   "modules": [
     "title",
     "separator",
-    "os",
+    {
+      "type": "os",
+      "key": "OS",
+      "format": "Arch Linux {12}"
+    },
     "host",
     "kernel",
     "uptime",
@@ -113,13 +145,38 @@ end</code></pre>
     "swap",
     "disk",
     "battery",
-    "poweradapter",
-    "locale"
+    "poweradapter"
   ]
 }</code></pre>
                     </div>
                     <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
                     <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/fastfetch/config.jsonc">View Full Config</a>
+                </div>
+                <div class="config-item terminal-window">
+                    <div class="window-header">fastfetch/small.jsonc</div>
+                    <div class="window-content">
+                        <pre><code class="json">{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "arch",
+    "type": "small"
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "os",
+      "format": "Arch Linux {12}"
+    },
+    "kernel",
+    "uptime",
+    "shell",
+    "packages"
+  ]
+}</code></pre>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/fastfetch/small.jsonc">View Full Config</a>
                 </div>
                 <div class="config-item terminal-window">
                     <div class="window-header">GNOME Extensions</div>
@@ -179,6 +236,17 @@ dconf load / < ~/dotfiles/gnome_settings.ini</code></pre>
                 </div>
                 <div class="command-line">
                     <span class="prompt">$</span> <span class="command">cd ~/dotfiles && ./setup/setup.sh</span>
+                </div>
+            </div>
+
+            <div class="dependencies">
+                <h3>📦 Dependencies</h3>
+                <p><strong>Core:</strong> fish, dconf, code-insiders</p>
+                <p><strong>Fish Tools:</strong> eza, bat, fastfetch, zoxide, starship, fzf, rnote</p>
+                <div class="install-command">
+                    <div class="command-line">
+                        <span class="prompt">$</span> <span class="command">sudo pacman -S fish dconf code-insiders eza bat fastfetch zoxide starship fzf rnote</span>
+                    </div>
                 </div>
             </div>
         </section>
