@@ -1,9 +1,17 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "blackarch", // Logo source to BlackArch
+    "type": "auto"
+  },
   "modules": [
     "title",
     "separator",
-    "os",
+    {
+        "type": "os",
+        "key": "OS",
+        "format": "Arch Linux {12}" // OS name override to display Arch 
+    },
     "host",
     "kernel",
     "uptime",
