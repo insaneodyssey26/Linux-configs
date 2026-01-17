@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="/">Linux Configs</a>
+            <nav class="site-nav">
+                <a href="#about">About</a>
+                <a href="#configs">Configs</a>
+                <a href="#installation">Install</a>
+                <a class="github-btn" href="https://github.com/insaneodyssey26/Linux-configs" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1>Linux Configs</h1>
+            <p class="lead">Curated dotfiles and configuration for modern Linux setups.</p>
+        </div>
+    </section>
+
     <div class="terminal">
         <div class="terminal-header">
             <div class="terminal-buttons">
@@ -14,11 +32,11 @@
                 <span class="yellow"></span>
                 <span class="green"></span>
             </div>
-            <div class="terminal-title">linux-configs ~ terminal</div>
+            <div class="terminal-title">Linux Configs — demo</div>
         </div>
         <div class="terminal-body">
             <div class="command-line">
-                <span class="prompt">$</span> <span class="command">welcome to linux configs</span>
+                <span class="prompt">$</span> <span class="command">Welcome to Linux Configs</span>
             </div>
             <div class="output">
                 <p>Initializing system configurations...</p>
@@ -36,20 +54,21 @@
     </div>
 
     <main>
+        <div class="container">
         <section id="about">
             <h2>About</h2>
             <p>This repository contains curated Linux configuration files for a productive development environment. Each config is crafted for efficiency and minimalism.</p>
 
             <div class="repo-info">
-                <h3>📁 Repository</h3>
+                <h3>Repository</h3>
                 <div class="repo-stats">
                     <a href="https://github.com/insaneodyssey26/Linux-configs" target="_blank" class="repo-link">
                         <strong>insaneodyssey26/Linux-configs</strong>
                     </a>
                     <div class="repo-details">
-                        <span class="repo-stat">🌟 Star this repo</span>
-                        <span class="repo-stat">🍴 Fork to customize</span>
-                        <span class="repo-stat">📝 MIT License</span>
+                        <span class="repo-stat">Star this repo</span>
+                        <span class="repo-stat">Fork to customize</span>
+                        <span class="repo-stat">MIT License</span>
                     </div>
                 </div>
             </div>
@@ -210,6 +229,71 @@ gsconnect@andyholmes.github.io</code></pre>
                     <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/vscode/settings.json">View Full Settings</a>
                 </div>
                 <div class="config-item terminal-window">
+                    <div class="window-header">Starship/starship.toml</div>
+                    <div class="window-content">
+                        <pre><code class="toml">format = """
+[](color_orange)\
+$os\
+$username\
+[ ](fg:color_orange)\
+[](color_yellow)\
+$directory\
+[ ](fg:color_yellow)\
+([](color_aqua)\
+$git_branch\
+$git_status\
+[ ](fg:color_aqua))\
+([](color_blue)\
+$c\
+$cpp\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[ ](fg:color_blue))\
+([](color_bg3)\
+$docker_context\
+$conda\
+$pixi\
+[ ](fg:color_bg3))\
+[](color_bg1)\
+$time\
+[ ](fg:color_bg1)\
+$line_break$character
+"""
+
+palette = 'gruvbox_dark'</code></pre>
+                    </div>
+                    <div class="config-attribution">Inspired by <a href="https://github.com/starship/starship/discussions/1107#discussioncomment-15013630" target="_blank">Starship Discussion #1107</a></div> 
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/Starship/starship.toml">View Full Config</a>
+                </div>
+                <div class="config-item terminal-window">
+                    <div class="window-header">Starship/starship2.toml</div>
+                    <div class="window-content">
+                        <pre><code class="toml">format = """
+[╭](bold overlay1)$os$username\
+$directory\
+$git_branch\
+$git_status\
+$git_commit\
+$time\
+\n$character\
+$conda\
+$python\
+"""
+
+palette = 'cyberdream'</code></pre>
+                    </div>
+                    <div class="config-attribution">Inspired by <a href="https://github.com/Taloonys/dotfiles/blob/linux/starship.toml" target="_blank">Taloonys' dotfiles</a></div> 
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <a href="https://github.com/insaneodyssey26/Linux-configs/blob/main/Starship/starship2.toml">View Full Config</a>
+                </div>
+                <div class="config-item terminal-window">
                     <div class="window-header">Setup Script</div>
                     <div class="window-content">
                         <pre><code class="bash">#!/bin/bash
@@ -240,7 +324,7 @@ dconf load / < ~/dotfiles/gnome_settings.ini</code></pre>
             </div>
 
             <div class="dependencies">
-                <h3>📦 Dependencies</h3>
+                <h3>Dependencies</h3>
                 <p><strong>Core:</strong> fish, dconf, code-insiders</p>
                 <p><strong>Fish Tools:</strong> eza, bat, fastfetch, zoxide, starship, fzf, rnote</p>
                 <div class="install-command">
@@ -250,10 +334,20 @@ dconf load / < ~/dotfiles/gnome_settings.ini</code></pre>
                 </div>
             </div>
         </section>
-    </main>
+        </div>
+    </main> 
 
-    <footer>
-        <p>Built by <a href="https://github.com/insaneodyssey26" target="_blank">Masum</a></p>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-left">
+                <p>Built by <a href="https://github.com/insaneodyssey26" target="_blank">Masum</a></p>
+            </div>
+            <div class="footer-right">
+                <a href="/LICENSE">MIT License</a>
+                <span style="margin:0 0.5rem;color:var(--muted-text)">·</span>
+                <a href="https://github.com/insaneodyssey26/Linux-configs" target="_blank">Repository</a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>

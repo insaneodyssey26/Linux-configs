@@ -38,15 +38,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-document.querySelectorAll('.config-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        item.style.transform = 'scale(1.02)';
-    });
+// Removed JS-based hover scaling to avoid jumpy interactions; CSS :hover now handles subtle motion
 
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = 'scale(1)';
-    });
-});
+let srStatus = document.getElementById('sr-status');
+if (!srStatus) {
+    srStatus = document.createElement('div');
+    srStatus.id = 'sr-status';
+    srStatus.setAttribute('aria-live', 'polite');
+    srStatus.className = 'sr-only';
+    document.body.appendChild(srStatus);
+} 
 
 const commandLines = document.querySelectorAll('.command-line .command');
 let commandIndex = 0;
@@ -72,6 +73,12 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
+// Accessibility: add aria-label and title to copy buttons
+document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.setAttribute('aria-label', 'Copy configuration');
+    btn.setAttribute('title', 'Copy configuration');
+});
+
 const installationSection = document.getElementById('installation');
 if (installationSection) {
     observer.observe(installationSection);
@@ -83,21 +90,23 @@ function copyToClipboard(button) {
     const textToCopy = codeElement.textContent;
 
     navigator.clipboard.writeText(textToCopy).then(() => {
-        const originalText = button.textContent;
-        button.textContent = 'Copied!';
-        button.style.background = '#00ff88';
-        button.style.color = '#1a1a1a';
+        // show subtle check badge without changing text to avoid layout shift
+        button.classList.remove('error');
+        button.classList.add('copied');
+        if (srStatus) srStatus.textContent = 'Configuration copied to clipboard';
         setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = '';
-            button.style.color = '';
-        }, 2000);
+            button.classList.remove('copied');
+            if (srStatus) srStatus.textContent = '';
+        }, 1500);
     }).catch(err => {
         console.error('Failed to copy: ', err);
-        button.textContent = 'Failed';
+        button.classList.remove('copied');
+        button.classList.add('error');
+        if (srStatus) srStatus.textContent = 'Copy failed';
         setTimeout(() => {
-            button.textContent = 'Copy';
-        }, 2000);
+            button.classList.remove('error');
+            if (srStatus) srStatus.textContent = '';
+        }, 1800);
     });
 }
 
