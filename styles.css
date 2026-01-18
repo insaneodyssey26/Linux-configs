@@ -97,6 +97,91 @@ body {
 
 .github-btn:hover { background: rgba(107, 212, 139, 0.06); color: var(--accent); }
 
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mobile-menu-toggle span {
+    width: 100%;
+    height: 2px;
+    background: var(--muted-text);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile navigation overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(11, 13, 14, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-overlay.active {
+    display: flex;
+}
+
+.mobile-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.mobile-nav-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-menu a:hover {
+    background: rgba(107, 212, 139, 0.1);
+    color: var(--accent);
+}
+
+.mobile-nav-menu .github-btn {
+    background: var(--accent);
+    color: var(--bg-color);
+    margin-top: 1rem;
+}
+
+.mobile-nav-menu .github-btn:hover {
+    background: var(--accent-muted);
+    color: var(--bg-color);
+}
+
 .hero {
     padding: 2rem 0 1rem 0;
 }
@@ -270,69 +355,187 @@ section h2 {
 
 .window-content pre { margin: 0; font-size: 0.82rem; line-height: 1.45; color: var(--text-color); }
 
-/* copy button: subtle pill in top-right */
+/* Copy button styles */
 .copy-btn {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    background: transparent;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.02);
     color: var(--muted-text);
-    border: 1px solid rgba(255,255,255,0.03);
-    padding: 6px 10px;
-    min-width: 62px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease, border-color 120ms ease;
-    box-shadow: none;
-}
-
-.copy-btn:hover { background: rgba(255,255,255,0.01); color: var(--text-color); border-color: rgba(255,255,255,0.04); transform: translateY(-1px); }
-
-.copy-btn.copied { border-color: rgba(107,212,139,0.14); color: var(--accent); transform: translateY(-1px); }
-
-.copy-btn.copied::after, .copy-btn.error::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 28px;
-    height: 28px;
-    display: inline-grid;
-    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 12px;
     border-radius: 8px;
-    color: var(--bg-color);
-    font-weight: 700;
-    z-index: 50;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
 }
 
-.copy-btn.copied::after {
-    content: '✔';
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.copy-btn.copied {
     background: var(--accent);
-    box-shadow: 0 6px 16px rgba(2,8,10,0.6);
-    animation: checkPop 420ms cubic-bezier(0.2,0.9,0.3,1) forwards;
+    color: var(--bg-color);
+    border-color: var(--accent);
+    animation: copySuccess 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.copy-btn.copied .copy-icon {
+    animation: checkmark 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-btn.copied .copy-text {
+    animation: textFade 0.3s ease-out;
+}
+
+.copy-btn.error {
+    background: #ff4757;
+    color: white;
+    border-color: #ff4757;
+    animation: copyError 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-icon {
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.copy-text {
+    transition: opacity 0.2s ease;
+}
+
+/* Copy animations */
+@keyframes copySuccess {
+    0% {
+        transform: scale(1);
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--muted-text);
+    }
+    50% {
+        transform: scale(1.05);
+        background: var(--accent);
+        color: var(--bg-color);
+    }
+    100% {
+        transform: scale(1);
+        background: var(--accent);
+        color: var(--bg-color);
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes textFade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes copyError {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px);
+    }
+    75% {
+        transform: translateX(2px);
+    }
+}
+
+/* Success checkmark overlay */
+.copy-btn.copied::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--bg-color);
+    opacity: 0;
+    animation: checkmarkPop 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+    pointer-events: none;
+}
+
+@keyframes checkmarkPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Error overlay */
 .copy-btn.error::after {
     content: '!';
-    background: #ff6e6e;
-    box-shadow: 0 6px 16px rgba(20,8,8,0.6);
-    animation: checkPop 420ms cubic-bezier(0.2,0.9,0.3,1) forwards;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+    animation: errorPop 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+    pointer-events: none;
 }
 
-@keyframes checkPop {
-    0% { opacity: 0; transform: translateY(8px) scale(0.9); }
-    40% { opacity: 1; transform: translateY(-6px) scale(1.06); }
-    100% { opacity: 1; transform: translateY(-4px) scale(1); }
+@keyframes errorPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
-.copy-btn:active { transform: scale(0.98); }
+/* copy button: subtle pill in top-right */
+
 
 .config-item a { display: inline-block; color: var(--muted-text); text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 6px; margin: 1rem; border: 1px solid var(--border); }
 
@@ -542,15 +745,256 @@ code {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .terminal {
-        margin: 1rem;
+    .container {
+        padding: 0 1rem;
     }
     
-    .config-grid {
-        grid-template-columns: 1fr;
+    /* Header */
+    .site-header .container {
+        padding: 0.75rem 0;
+    }
+    
+    .brand {
+        font-size: 1.1rem;
+    }
+    
+    .site-nav {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 1.5rem 0 1rem 0;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero .lead {
+        font-size: 1rem;
+    }
+    
+    /* Terminal */
+    .terminal {
+        margin: 1rem 0.5rem;
+        max-width: none;
+    }
+    
+    .terminal-header {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .terminal-title {
+        font-size: 0.85rem;
+    }
+    
+    .terminal-body {
+        padding: 1rem;
+        font-size: 0.85rem;
+        height: 180px;
+    }
+    
+    /* Main content */
+    main {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    section {
+        margin-bottom: 2rem;
     }
     
     section h2 {
         font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Config grid */
+    .config-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .config-item {
+        margin: 0;
+    }
+    
+    .window-header {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .window-content {
+        padding: 0.75rem;
+    }
+    
+    .window-content pre {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    
+    /* Copy buttons */
+    .copy-btn {
+        top: 8px;
+        right: 8px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .copy-btn .copy-icon {
+        width: 14px;
+        height: 14px;
+    }
+    
+    /* Config links */
+    .config-item a {
+        padding: 0.4rem 0.6rem;
+        margin: 0.5rem 0.75rem 0.75rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .config-attribution {
+        font-size: 0.8rem;
+        margin: 0.5rem 0.75rem;
+        text-align: left;
+    }
+    
+    /* Repo info */
+    .repo-info {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .repo-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .repo-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .repo-stat {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    
+    /* Dependencies */
+    .dependencies {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .dependencies h3 {
+        font-size: 1.1rem;
+    }
+    
+    .install-command {
+        padding: 0.75rem;
+    }
+    
+    /* Installation section */
+    #installation {
+        padding: 1.5rem 1rem;
+    }
+    
+    .terminal-command {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Footer */
+    .site-footer .container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+    
+    .footer-right {
+        justify-content: center;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero .lead {
+        font-size: 0.95rem;
+    }
+    
+    .terminal {
+        margin: 1rem 0.25rem;
+    }
+    
+    .terminal-body {
+        height: 160px;
+        padding: 0.75rem;
+    }
+    
+    main {
+        padding: 1rem 0.25rem;
+    }
+    
+    section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .config-grid {
+        gap: 1rem;
+    }
+    
+    .window-content {
+        padding: 0.5rem;
+    }
+    
+    .window-content pre {
+        font-size: 0.7rem;
+    }
+    
+    .copy-btn {
+        top: 6px;
+        right: 6px;
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .copy-btn .copy-icon {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .config-item a {
+        padding: 0.35rem 0.5rem;
+        margin: 0.4rem 0.5rem 0.6rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .repo-info,
+    .dependencies {
+        padding: 0.75rem;
+    }
+    
+    #installation {
+        padding: 1rem 0.75rem;
+    }
+    
+    .terminal-command {
+        padding: 0.6rem;
+        font-size: 0.8rem;
     }
 }

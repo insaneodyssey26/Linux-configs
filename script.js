@@ -73,42 +73,62 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-// Accessibility: add aria-label and title to copy buttons
-document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.setAttribute('aria-label', 'Copy configuration');
-    btn.setAttribute('title', 'Copy configuration');
-});
 
 const installationSection = document.getElementById('installation');
 if (installationSection) {
     observer.observe(installationSection);
 }
 
+// Copy button functionality
 function copyToClipboard(button) {
     const configItem = button.closest('.config-item');
     const codeElement = configItem.querySelector('code');
     const textToCopy = codeElement.textContent;
 
+    // Update button state to loading
+    button.classList.add('copying');
+    button.querySelector('.copy-text').textContent = 'Copying...';
+
     navigator.clipboard.writeText(textToCopy).then(() => {
-        // show subtle check badge without changing text to avoid layout shift
-        button.classList.remove('error');
+        // Success state
+        button.classList.remove('copying', 'error');
         button.classList.add('copied');
+        button.querySelector('.copy-text').textContent = 'Copied!';
+
+        // Update screen reader status
         if (srStatus) srStatus.textContent = 'Configuration copied to clipboard';
+
+        // Reset after delay
         setTimeout(() => {
             button.classList.remove('copied');
+            button.querySelector('.copy-text').textContent = 'Copy';
             if (srStatus) srStatus.textContent = '';
-        }, 1500);
+        }, 2000);
     }).catch(err => {
         console.error('Failed to copy: ', err);
-        button.classList.remove('copied');
+
+        // Error state
+        button.classList.remove('copying', 'copied');
         button.classList.add('error');
+        button.querySelector('.copy-text').textContent = 'Failed';
+
+        // Update screen reader status
         if (srStatus) srStatus.textContent = 'Copy failed';
+
+        // Reset after delay
         setTimeout(() => {
             button.classList.remove('error');
+            button.querySelector('.copy-text').textContent = 'Copy';
             if (srStatus) srStatus.textContent = '';
-        }, 1800);
+        }, 2000);
     });
 }
+
+// Initialize copy buttons
+document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.setAttribute('aria-label', 'Copy configuration');
+    btn.setAttribute('title', 'Copy configuration');
+});
 
 const cursor = document.createElement('span');
 cursor.className = 'cursor';
@@ -131,3 +151,37 @@ style.textContent = `
 }
 `;
 document.head.appendChild(style);
+
+// Mobile menu functionality
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const mobileNavOverlay = document.getElementById('mobile-nav');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+
+function toggleMobileMenu() {
+    mobileMenuToggle.classList.toggle('active');
+    mobileNavOverlay.classList.toggle('active');
+    document.body.style.overflow = mobileNavOverlay.classList.contains('active') ? 'hidden' : '';
+}
+
+mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+// Close mobile menu when clicking on a link
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        toggleMobileMenu();
+    });
+});
+
+// Close mobile menu when clicking outside
+mobileNavOverlay.addEventListener('click', (e) => {
+    if (e.target === mobileNavOverlay) {
+        toggleMobileMenu();
+    }
+});
+
+// Close mobile menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNavOverlay.classList.contains('active')) {
+        toggleMobileMenu();
+    }
+});
