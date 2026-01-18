@@ -358,7 +358,7 @@ section h2 {
 /* Copy button styles */
 .copy-btn {
     position: absolute;
-    top: 12px;
+    bottom: 12px;
     right: 12px;
     background: rgba(255, 255, 255, 0.02);
     color: var(--muted-text);
@@ -575,28 +575,6 @@ code {
 .bash .comment { color: var(--comment-color); }
 .bash .keyword { color: var(--keyword-color); }
 .bash .string { color: var(--string-color); }
-
-.copy-btn {
-    background: var(--terminal-bg);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    margin: 0.5rem 0;
-    transition: all 0.2s ease;
-}
-
-.copy-btn:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
-}
-
-.copy-btn:active {
-    transform: scale(0.95);
-}
 
 .config-attribution {
     text-align: center;
@@ -841,7 +819,7 @@ code {
     
     /* Copy buttons */
     .copy-btn {
-        top: 8px;
+        bottom: 8px;
         right: 8px;
         padding: 6px 10px;
         font-size: 0.75rem;
@@ -967,7 +945,7 @@ code {
     }
     
     .copy-btn {
-        top: 6px;
+        bottom: 6px;
         right: 6px;
         padding: 4px 8px;
         font-size: 0.7rem;
