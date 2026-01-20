@@ -4,7 +4,25 @@ This repository contains my personal Linux configuration files (dotfiles) for se
 
 **[View the Showcase Website](index.html)** - A minimal website showcasing the configs and their functions.
 
-## Quick Setup
+## ⚠️ WARNING: Setup Script Incomplete
+
+**The automated setup script (`setup/setup.sh`) is currently not properly configured and may cause issues or incomplete setups. Do not run it yet!** 
+
+Manual setup is recommended for now. Follow the individual configuration steps below.
+
+## Manual Setup
+
+1. Clone this repo to `~/dotfiles`:
+   ```bash
+   git clone <your-repo-url> ~/dotfiles
+   ```
+
+2. Manually symlink or copy configuration files to their proper locations (see "What's Included" for details).
+
+3. Install required tools and apply settings as described in Requirements.
+
+<!-- Commented out until setup.sh is fixed
+## Quick Setup (DISABLED)
 
 1. Clone this repo to `~/dotfiles`:
    ```bash
@@ -22,6 +40,7 @@ The script will:
 - Optionally install packages and VSCode extensions
 - Apply GNOME settings
 - Restore GNOME extensions from backup
+-->
 
 ## What's Included
 
