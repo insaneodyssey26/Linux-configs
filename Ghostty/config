@@ -1,0 +1,65 @@
+# --- Appearance: AMOLED Black & Transparency ---
+background = #000000
+background-opacity = 0.8
+background-blur = true
+
+# --- Vibrancy & Color Space Fixes ---
+# Use display-p3 for wider, punchier color gamut (Fixes faded text)
+window-colorspace = display-p3
+# Use 'physical' blending to prevent text from 'thinning out' 
+alpha-blending = native
+# Adds slight weight to the font to hold more color
+font-thicken = true
+
+# --- Window Decorations (Pitch Black Titlebar) ---
+window-decoration = true
+window-theme = ghostty
+window-titlebar-background = #000000
+window-titlebar-foreground = #ffffff
+window-padding-x = 20
+window-padding-y = 20
+
+
+# --- Exact Cyberdream Color Palette (High Saturation) ---
+# I've boosted these hex codes to be slightly more vivid to fight the transparency
+palette = 0=#16181a
+palette = 1=#ff4f3d
+palette = 2=#3dff4f
+palette = 3=#e9ff3d
+palette = 4=#3d8dff
+palette = 5=#ad3dff
+palette = 6=#3de9ff
+palette = 7=#ffffff
+palette = 8=#3c4048
+palette = 9=#ff6e5e
+palette = 10=#5eff6c
+palette = 11=#f1ff5e
+palette = 12=#5ea1ff
+palette = 13=#bd5eff
+palette = 14=#5ef1ff
+palette = 15=#ffffff
+
+# --- Font & Cursor ---
+font-family = "JetBrainsMono Nerd Font"
+font-size = 12
+cursor-style = bar
+cursor-style-blink = true
+
+# --- Keybinds (Kitty Port) ---
+keybind = ctrl+t=new_tab
+keybind = ctrl+w=close_tab
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+keybind = ctrl+1=goto_tab:1
+keybind = ctrl+2=goto_tab:2
+keybind = ctrl+3=goto_tab:3
+keybind = ctrl+4=goto_tab:4
+keybind = ctrl+5=goto_tab:5
+keybind = ctrl+6=goto_tab:6
+keybind = ctrl+7=goto_tab:7
+keybind = ctrl+8=goto_tab:8
+keybind = ctrl+9=goto_tab:9
+keybind = performable:ctrl+c=copy_to_clipboard
+keybind = ctrl+v=paste_from_clipboard
+
+confirm-close-surface = false
