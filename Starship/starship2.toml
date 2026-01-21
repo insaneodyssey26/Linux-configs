@@ -1,3 +1,6 @@
+# Use the Cyberdream-inspired palette
+palette = 'cyberdream'
+
 format = """
 [╭](bold overlay1)$os$username\
 $directory\
@@ -10,27 +13,7 @@ $conda\
 $python\
 """
 
-# =============Visauls================
-
-palette = 'cyberdream'
-
-[palettes.cyberdream]
-text      = '#c7cfff'
-overlay1  = '#242937'
-color_fg0 = '#c7cfff'
-color_bg0 = '#0a0e14'
-color_bg1 = '#0f1117'
-color_bg3 = '#242937'
-color_blue   = '#5ea1ff'
-color_aqua   = '#5ef1ff'
-color_green  = '#5eff6c'
-color_orange = '#ffb65e'
-color_red    = '#ff6e5e'
-color_yellow = '#f1ff5e'
-color_pink   = '#ff5ea0'
-red = '#ff6e5e'
-
-# =============Modules================
+# ============= Modules ================
 
 [username]
 show_always = true
@@ -90,12 +73,12 @@ style = "fg:color_aqua"
 format = '  [$time]($style)'
 
 [character]
-format = """
-[╰─$symbol](fg:overlay1) """
+# Connectors now use the lightened overlay1 defined below
+format = "[╰─$symbol](fg:overlay1) "
 success_symbol = '[](fg:text bold)'
 error_symbol   = '[](fg:red bold)'
 
-# =======Programs environments========
+# ======= Programs environments ========
 
 [python]
 disabled = false
@@ -105,3 +88,27 @@ format = '([$symbol $virtualenv](fg:color_yellow)) > '
 [conda]
 disabled = false
 format = '([$symbol $environment](fg:color_green)) > '
+
+# ============= Visuals ================
+
+[palettes.cyberdream]
+# High-contrast text
+text      = '#ffffff'
+# BUMPED: Lightened from #242937 to #626b80 for AMOLED visibility
+overlay1  = '#626b80' 
+
+# Background & UI Colors
+color_bg0 = '#000000'
+color_bg1 = '#0f1117'
+color_bg3 = '#242937'
+color_fg0 = '#ffffff'
+
+# Cyberdream Colors
+color_blue   = '#5ea1ff'
+color_aqua   = '#5ef1ff'
+color_green  = '#5eff6c'
+color_orange = '#ffb65e'
+color_red    = '#ff6e5e'
+color_yellow = '#f1ff5e'
+color_pink   = '#ff5ea0'
+red          = '#ff6e5e'
