@@ -1,6 +1,6 @@
 # Linux Configs
 
-This repository contains my personal Linux configuration files (dotfiles) for setting up a customized development environment.
+This repository contains my personal Linux configuration files (dotfiles) for setting up a customized development environment with Fish shell, Ghostty/Kitty terminals, Starship prompt, and Fastfetch system info.
 
 **[View the Showcase Website](index.html)** - A minimal website showcasing the configs and their functions.
 
@@ -44,19 +44,19 @@ The script will:
 
 ## What's Included
 
-- **Fish Shell**: Config with useful aliases, zoxide/starship/fzf integrations, and a note-taking function
-- **Fastfetch**: System info display configuration
-- **GNOME**: Desktop settings ([Gnome/gnome_settings.ini](Gnome/gnome_settings.ini)) and extensions list ([Gnome/Extensions/extensions.txt](Gnome/Extensions/extensions.txt)) with backup files ([Gnome/Extensions/extensions_backup/](Gnome/Extensions/extensions_backup/))
-- **VSCode Insiders**: Settings and extensions list
-- **Setup Script**: Automated restoration script
+- **Fish Shell**: Config with useful aliases and zoxide/starship/fzf integrations
+- **Ghostty Terminal**: AMOLED-optimized terminal with transparency and custom palette
+- **Kitty Terminal**: GPU-accelerated terminal with custom tab bar and cursor trail
+- **Starship Prompt**: Powerline-style prompt with Gruvbox colors and git status
+- **Fastfetch**: System info display configurations (full and compact versions)
+- **Setup Script**: Automated restoration script (currently disabled)
 
 ## Requirements
 
 ### Core Dependencies
 - **Bash** (for setup script)
 - **Fish shell** (main shell configuration)
-- **dconf** (for GNOME settings)
-- **VSCode Insiders** (for editor configuration)
+- **dconf** (for GNOME settings - if using GNOME)
 
 ### Fish Shell Tools (Required for aliases to work)
 - **[eza](https://github.com/eza-community/eza)** - Modern replacement for `ls` with icons and colors
@@ -65,15 +65,14 @@ The script will:
 - **[zoxide](https://github.com/ajeetdsouza/zoxide)** - Smart directory jumping (replaces `cd`)
 - **[starship](https://starship.rs/)** - Cross-shell prompt customization
 - **[fzf](https://github.com/junegunn/fzf)** - Fuzzy finder for command-line
-- **[rnote](https://github.com/flxzt/rnote)** - Note-taking application (for `nn` function)
 
 ### Installation Commands (Arch Linux)
 ```bash
 # Install core tools
-sudo pacman -S fish dconf code-insiders
+sudo pacman -S fish dconf
 
 # Install Fish shell dependencies
-sudo pacman -S eza bat fastfetch zoxide starship fzf rnote
+sudo pacman -S eza bat fastfetch zoxide starship fzf
 
 # Initialize tools
 zoxide init fish | source
