@@ -13,15 +13,19 @@
         { "key": "│ {#31} user    {#keys}│", "type": "title", "format": "{user-name}" },
         { "key": "│ {#32}󰇅 hname   {#keys}│", "type": "title", "format": "{host-name}" },
         { "key": "│ {#34}󰅐 uptime  {#keys}│", "type": "uptime" },
-        { "key": "├───────────┤", "type": "custom" }, // The "Break" Connector
+        { "key": "├───────────┤", "type": "custom" }, 
         // --- GROUP 2: SOFTWARE ---
         { "key": "│ {#33}󰏖 pkgs    {#keys}│", "type": "packages" },
-        { "key": "│ {#34}{icon} distro  {#keys}│", "type": "os" },
+        { 
+            "key": "│ {#34}{icon} distro  {#keys}│", 
+            "type": "os", 
+            "format": "Arch Linux {12}" 
+        },
         { "key": "│ {#35} kernel  {#keys}│", "type": "kernel" },
         { "key": "│ {#36} wm      {#keys}│", "type": "wm" },
         { "key": "│ {#31} term    {#keys}│", "type": "terminal" },
         { "key": "│ {#32} shell   {#keys}│", "type": "shell" },
-        { "key": "├───────────┤", "type": "custom" }, // The "Break" Connector
+        { "key": "├───────────┤", "type": "custom" }, 
         // --- GROUP 3: HARDWARE ---
         { "key": "│ {#33}󰍛 cpu     {#keys}│", "type": "cpu", "showPeCoreCount": true },
         { "key": "│ {#35}󰢮 gpu     {#keys}│", "type": "gpu", "hideType": "integrated" },
