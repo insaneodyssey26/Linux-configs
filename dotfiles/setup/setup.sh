@@ -39,4 +39,10 @@ if [ -f ~/dotfiles/gnome_settings.ini ]; then
     dconf load / < ~/dotfiles/gnome_settings.ini
 fi
 
+if [ -d ~/dotfiles/Gnome/Extensions/extensions_backup ]; then
+    echo "Restoring GNOME extensions from backup..."
+    mkdir -p ~/.local/share/gnome-shell/extensions
+    cp -r ~/dotfiles/Gnome/Extensions/extensions_backup/* ~/.local/share/gnome-shell/extensions/
+fi
+
 echo -e "${GREEN}All done! Please restart your terminal or log out/in to see changes.${NC}"
