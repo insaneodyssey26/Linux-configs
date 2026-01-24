@@ -6,19 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 const bootSequence = [
   { text: "$ fastfetch", type: "command" as const, delay: 0 },
   { text: "", type: "output" as const, delay: 200 },
-  { text: "        /\\         masum@arch", type: "output" as const, delay: 300 },
-  { text: "       /  \\        -----------", type: "output" as const, delay: 50 },
-  { text: "      /    \\       OS: Arch Linux x86_64", type: "output" as const, delay: 50 },
-  { text: "     /      \\      Kernel: 6.12.8-zen1-1-zen", type: "output" as const, delay: 50 },
-  { text: "    /   __   \\     Shell: fish 3.7.1", type: "output" as const, delay: 50 },
-  { text: "   /   (  )   \\    DE: GNOME 47", type: "output" as const, delay: 50 },
-  { text: "  /   __)(____\\   Terminal: ghostty", type: "output" as const, delay: 50 },
-  { text: " /___/        \\   CPU: AMD Ryzen 7", type: "output" as const, delay: 50 },
+  { text: "Terminal: terminal — fish", type: "output" as const, delay: 200 },
   { text: "", type: "output" as const, delay: 100 },
   { text: "$ ls -la ~/dotfiles", type: "command" as const, delay: 800 },
   { text: "", type: "output" as const, delay: 200 },
   { text: "drwxr-xr-x  config.fish", type: "file" as const, delay: 100 },
-  { text: "drwxr-xr-x  Ghostty/", type: "folder" as const, delay: 80 },
+  { text: "drwxr-xr-x  terminal/", type: "folder" as const, delay: 80 },
   { text: "drwxr-xr-x  Kitty/", type: "folder" as const, delay: 80 },
   { text: "drwxr-xr-x  Starship/", type: "folder" as const, delay: 80 },
   { text: "drwxr-xr-x  fastfetch/", type: "folder" as const, delay: 80 },
@@ -110,12 +103,8 @@ export function TerminalDemo() {
             />
           </div>
           <span className="ml-1 font-mono text-[11px] text-white/40 sm:ml-2 sm:text-[13px]">
-            ghostty — fish
+            terminal — fish
           </span>
-        </div>
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          <span className="h-1 w-1 rounded-full bg-emerald-500 animate-pulse sm:h-1.5 sm:w-1.5" />
-          <span className="text-[10px] text-white/30 sm:text-[11px]">live</span>
         </div>
       </div>
 
