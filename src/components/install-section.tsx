@@ -39,6 +39,7 @@ export function InstallSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left column - Text */}
           <motion.div
+            className="min-w-0"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -58,7 +59,7 @@ export function InstallSection() {
 
             {/* Warning */}
             <motion.div 
-              className="mt-6 overflow-hidden rounded-xl border border-amber-500/20 bg-amber-500/10 p-5"
+              className="mt-6 rounded-xl border border-amber-500/20 bg-amber-500/10 p-5"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -78,7 +79,7 @@ export function InstallSection() {
                   <p className="text-[14px] leading-relaxed text-amber-200/90 font-medium mb-1 sm:text-[15px]">
                     Manual Setup Required
                   </p>
-                  <p className="text-[13px] leading-relaxed text-amber-200/60 sm:text-[14px]">
+                  <p className="text-[13px] leading-relaxed text-amber-200/60 sm:text-[14px] break-words">
                     The automated setup script is not yet ready. Please copy or symlink 
                     configuration files manually (see README for details).
                   </p>
@@ -97,7 +98,7 @@ export function InstallSection() {
               <h3 className="mb-4 text-[15px] font-medium text-white/70">
                 Required tools
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 min-w-0">
                 {[...dependencies.core, ...dependencies.tools].map((dep, i) => (
                   <motion.span
                     key={dep}
@@ -106,7 +107,7 @@ export function InstallSection() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 + i * 0.03 }}
                     whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.05)" }}
-                    className="cursor-default rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 font-mono text-[13px] text-white/50 transition-colors"
+                    className="cursor-default min-w-0 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 font-mono text-[13px] text-white/50 transition-colors"
                   >
                     {dep}
                   </motion.span>
@@ -117,7 +118,7 @@ export function InstallSection() {
 
           {/* Right column - Commands */}
           <motion.div 
-            className="space-y-4"
+            className="space-y-4 min-w-0"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -193,8 +194,8 @@ export function InstallSection() {
                     </AnimatePresence>
                   </motion.button>
                 </div>
-                <div className="relative bg-[#0a0a0a] p-4">
-                  <code className="block overflow-x-auto whitespace-nowrap font-mono text-[13px] text-emerald-400/80 scrollbar-thin">
+                <div className="relative bg-[#0a0a0a] p-4 min-w-0">
+                  <code className="block overflow-x-auto whitespace-pre-wrap break-words font-mono text-[13px] text-emerald-400/80 scrollbar-thin">
                     <span className="text-[#1793d1]/60">$ </span>
                     {cmd.command}
                   </code>

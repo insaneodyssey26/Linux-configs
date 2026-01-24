@@ -7,10 +7,7 @@ import { Magnetic } from "@/lib/animations";
 export function CtaSection() {
   return (
     <section className="relative overflow-hidden border-t border-white/[0.04] py-16 md:py-24">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute bottom-0 left-1/2 h-[400px] w-[600px] -translate-x-1/2 bg-[#1793d1]/5" />
-      </div>
+      {/* Background removed for simplicity and better performance on mobile */}
 
       <motion.div 
         className="relative mx-auto max-w-6xl px-4 sm:px-6 text-center"
