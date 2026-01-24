@@ -2,18 +2,20 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
     "source": "arch",
-    "type": "small"
+    "type": "small",
+    "padding": { "top": 1 }
   },
+  "display": { "separator": " " },
   "modules": [
-    "title",
-    "separator",
-    {
-      "type": "os",
-      "format": "Arch Linux {12}"
-    },
-    "kernel",
-    "uptime",
-    "shell",
-    "packages"
+    { "type": "custom", "key": "╭───────────╮" },
+
+    { "type": "os",       "key": "│ {#34}󰏖 os      {#keys}│", "format": "Arch Linux" },
+    { "type": "kernel",   "key": "│ {#35} kernel  {#keys}│" },
+    { "type": "uptime",   "key": "│ {#34}󰅐 uptime  {#keys}│" },
+    { "type": "terminal", "key": "│ {#31} term    {#keys}│" },
+    { "type": "shell",    "key": "│ {#32} shell   {#keys}│" },
+    { "type": "packages", "key": "│ {#33}󰏖 pkgs    {#keys}│" },
+
+    { "type": "custom", "key": "╰───────────╯" }
   ]
 }
