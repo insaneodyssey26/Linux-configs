@@ -142,7 +142,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl md:hidden motion-anim"
           >
             <motion.div 
               className="flex h-full flex-col items-center justify-center gap-6 px-4"
@@ -161,14 +161,14 @@ export function Header() {
                 <motion.div
                   key={link.href}
                   variants={{
-                    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-                    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
                   }}
                 >
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl font-medium text-white/80 transition-colors hover:text-white"
+                    className="text-3xl font-medium text-white/80 transition-colors hover:text-white sm:text-3xl"
                   >
                     {link.label}
                   </Link>
@@ -176,8 +176,8 @@ export function Header() {
               ))}
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-                  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
                 }}
               >
                 <a
@@ -185,9 +185,9 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="mt-2 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-base text-white/90 transition-all hover:bg-white/10"
+                  className="mt-2 flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base text-white/90 transition-all hover:bg-white/10 sm:px-6 sm:text-lg"
                 >
-                  <GitHub size={16} />
+                  <GitHub size={18} />
                   <span>View on GitHub</span>
                 </a>
               </motion.div>

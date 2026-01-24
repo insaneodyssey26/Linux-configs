@@ -175,11 +175,34 @@ code {
   animation: shimmer 2s infinite;
 }
 
-/* Smooth transitions - exclude transform for animation performance */
-* {
-  transition-property: color, background-color, border-color, opacity, box-shadow;
+/* Smooth transitions for interactive elements (scoped to avoid expensive repaints) */
+:where(a,button,input,textarea,select,.group,.rounded-full,.btn) {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* GPU hint for animated elements */
+.motion-anim {
+  will-change: transform, opacity;
+}
+
+/* Disable heavy blurs & animations on touch devices to prevent flicker */
+@media (hover: none) and (pointer: coarse) {
+  .backdrop-blur-xl, .backdrop-blur-sm, .backdrop-blur-2xl, .blur-3xl, .blur-2xl {
+    backdrop-filter: none !important;
+    filter: none !important;
+  }
+  .animate-gradient, .shimmer, .glow {
+    animation: none !important;
+  }
+  .motion-anim {
+    will-change: auto;
+  }
+  :where(a,button,input,textarea,select,.group,.rounded-full,.btn) {
+    transition-duration: 90ms;
+  }
 }
 
 /* Reduced motion preferences */

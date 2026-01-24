@@ -17,11 +17,10 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.8, ease: easing.gentle },
   },
 };
@@ -31,32 +30,6 @@ export function HeroSection() {
     <section className="relative overflow-hidden pt-20 pb-12 md:pt-32 md:pb-24">
       {/* Animated background */}
       <div className="pointer-events-none absolute inset-0">
-        {/* Floating orbs */}
-        <motion.div
-          className="absolute top-20 left-[10%] h-64 w-64 rounded-full bg-white/5 blur-3xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-40 right-[15%] h-48 w-48 rounded-full bg-purple-500/5 blur-3xl"
-          animate={{
-            y: [0, 20, 0],
-            x: [0, -10, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
       </div>
 
       {/* Grid pattern overlay */}
