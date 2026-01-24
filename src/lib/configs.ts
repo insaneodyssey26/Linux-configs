@@ -110,6 +110,10 @@ cursor-style-blink = true`,
       "High-refresh rate optimizations",
       "JetBrains Mono font with Nerd Font icons",
     ],
+    attribution: {
+      text: "Inspired by MyLinuxForWork dotfiles",
+      url: "https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/kitty/kitty.conf",
+    },
     code: `#    __ ___ __  __
 #   / //_(_) /_/ /___ __
 #  / ,< / / __/ __/ // /
@@ -254,6 +258,10 @@ error_symbol = '[>](bold fg:color_red)'`,
       "Disk usage for dual-boot setup",
       "Battery status display",
     ],
+    attribution: {
+      text: "Inspired by MyLinuxForWork dotfiles",
+      url: "https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/fastfetch/config.jsonc",
+    },
     code: `{
   "$schema": "https://github.com/fastfetch-cli/fastfetch/...",
   "logo": {
