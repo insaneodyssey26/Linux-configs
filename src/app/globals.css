@@ -19,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Noise texture overlay for depth */
@@ -193,14 +194,25 @@ code {
   }
 }
 
-/* Print styles */
-@media print {
-  body::before {
-    display: none;
-  }
-  
-  * {
-    background: white !important;
-    color: black !important;
-  }
+/* Prevent horizontal overflow */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Ensure images and media don't overflow */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent long words from overflowing */
+.word-break {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }

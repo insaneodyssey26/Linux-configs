@@ -93,36 +93,36 @@ export function TerminalDemo() {
       transition={{ duration: 0.6 }}
     >
       {/* Terminal Header */}
-      <div className="flex items-center justify-between border-b border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.02] px-4 py-3">
-        <div className="flex items-center gap-3">
-          <div className="flex gap-2">
+      <div className="flex items-center justify-between border-b border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.02] px-3 py-2.5 sm:px-4 sm:py-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex gap-1.5 sm:gap-2">
             <motion.span 
-              className="h-3 w-3 rounded-full bg-[#ff5f56]" 
+              className="h-2.5 w-2.5 rounded-full bg-[#ff5f56] sm:h-3 sm:w-3" 
               whileHover={{ scale: 1.2 }}
             />
             <motion.span 
-              className="h-3 w-3 rounded-full bg-[#ffbd2e]" 
+              className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e] sm:h-3 sm:w-3" 
               whileHover={{ scale: 1.2 }}
             />
             <motion.span 
-              className="h-3 w-3 rounded-full bg-[#27ca40]" 
+              className="h-2.5 w-2.5 rounded-full bg-[#27ca40] sm:h-3 sm:w-3" 
               whileHover={{ scale: 1.2 }}
             />
           </div>
-          <span className="ml-2 font-mono text-[13px] text-white/40">
+          <span className="ml-1 font-mono text-[11px] text-white/40 sm:ml-2 sm:text-[13px]">
             ghostty — fish
           </span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[11px] text-white/30">live</span>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <span className="h-1 w-1 rounded-full bg-emerald-500 animate-pulse sm:h-1.5 sm:w-1.5" />
+          <span className="text-[10px] text-white/30 sm:text-[11px]">live</span>
         </div>
       </div>
 
       {/* Terminal Body */}
       <div
         ref={terminalRef}
-        className="h-[340px] overflow-y-auto bg-gradient-to-b from-[#0d0d0d] to-black p-5 font-mono text-[13px] leading-relaxed scrollbar-thin"
+        className="h-[280px] overflow-y-auto bg-gradient-to-b from-[#0d0d0d] to-black p-3 font-mono text-[12px] leading-relaxed scrollbar-thin sm:h-[340px] sm:p-5 sm:text-[13px]"
       >
         <AnimatePresence>
           {lines.map((line, i) => (

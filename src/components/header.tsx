@@ -55,20 +55,20 @@ export function Header() {
           hasScrolled && "backdrop-saturate-150"
         )}
       >
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex h-16 items-center justify-between">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex h-14 items-center justify-between md:h-16">
             {/* Logo */}
             <Link
               href="/"
-              className="group flex items-center gap-2.5 text-white/90 transition-colors hover:text-white"
+              className="group flex items-center gap-2 text-white/90 transition-colors hover:text-white"
             >
               <motion.div
                 whileHover={{ rotate: [0, -10, 10, 0] }}
                 transition={{ duration: 0.4 }}
               >
-                <Terminal size={24} className="text-[#1793d1] transition-colors group-hover:text-[#1ca3e3]" />
+                <Terminal size={20} className="text-[#1793d1] transition-colors group-hover:text-[#1ca3e3] lg:size-22" />
               </motion.div>
-              <span className="text-[15px] font-medium tracking-[-0.01em]">
+              <span className="text-[14px] font-medium tracking-[-0.01em] md:text-base lg:text-lg">
                 linux configs
               </span>
             </Link>
@@ -79,17 +79,17 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group relative px-4 py-2 text-[14px] text-white/50 transition-colors hover:text-white/90"
+                  className="group relative px-3 py-2 text-[14px] text-white/50 transition-colors hover:text-white/90 md:px-4"
                 >
                   {link.label}
-                  <span className="absolute inset-x-4 -bottom-px h-px bg-[#1793d1]/50 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <span className="absolute inset-x-3 -bottom-px h-px bg-[#1793d1]/50 opacity-0 transition-opacity group-hover:opacity-100 md:inset-x-4" />
                 </Link>
               ))}
               <motion.a
                 href="https://github.com/insaneodyssey26/Linux-configs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-3 flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-2 text-[14px] text-white/70 transition-all hover:border-white/[0.15] hover:bg-white/[0.05] hover:text-white"
+                className="ml-2 flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-2 text-[14px] text-white/70 transition-all hover:border-white/[0.15] hover:bg-white/[0.05] hover:text-white md:ml-3 md:px-4"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -101,7 +101,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl text-white/60 transition-colors hover:bg-white/[0.05] hover:text-white md:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-xl text-white/60 transition-colors hover:bg-white/[0.05] hover:text-white md:hidden"
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
@@ -115,7 +115,7 @@ export function Header() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X size={22} />
+                    <X size={20} />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -125,7 +125,7 @@ export function Header() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu size={22} />
+                    <Menu size={20} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -145,7 +145,7 @@ export function Header() {
             className="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl md:hidden"
           >
             <motion.div 
-              className="flex h-full flex-col items-center justify-center gap-8"
+              className="flex h-full flex-col items-center justify-center gap-6 px-4"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -168,7 +168,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-3xl font-medium text-white/80 transition-colors hover:text-white"
+                    className="text-2xl font-medium text-white/80 transition-colors hover:text-white sm:text-3xl"
                   >
                     {link.label}
                   </Link>
@@ -185,9 +185,9 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="mt-4 flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-lg text-white/90 transition-all hover:bg-white/10"
+                  className="mt-2 flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base text-white/90 transition-all hover:bg-white/10 sm:px-6 sm:text-lg"
                 >
-                  <GitHub size={20} />
+                  <GitHub size={18} />
                   <span>View on GitHub</span>
                 </a>
               </motion.div>

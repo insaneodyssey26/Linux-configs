@@ -33,10 +33,10 @@ export function InstallSection() {
   ];
 
   return (
-    <section id="installation" className="relative py-20 md:py-24">
+    <section id="installation" className="relative py-16 md:py-24">
       
-      <div className="relative mx-auto max-w-6xl px-6">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left column - Text */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -44,14 +44,14 @@ export function InstallSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-[12px] font-medium uppercase tracking-wider text-white/50">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#1793d1]" />
+            <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-white/50 sm:px-4 sm:py-1.5 sm:text-[12px]">
+              <span className="h-1 w-1 rounded-full bg-[#1793d1] sm:h-1.5 sm:w-1.5" />
               Installation
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight text-white/90 md:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white/90 md:text-4xl">
               Get started in minutes
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-white/50">
+            <p className="mt-3 text-base leading-relaxed text-white/50 md:text-lg">
               Clone the repository, install the required tools, and manually
               symlink the configuration files to their proper locations.
             </p>
@@ -75,10 +75,10 @@ export function InstallSection() {
                   </motion.span>
                 </div>
                 <div>
-                  <p className="text-[15px] leading-relaxed text-amber-200/90 font-medium mb-1">
+                  <p className="text-[14px] leading-relaxed text-amber-200/90 font-medium mb-1 sm:text-[15px]">
                     Manual Setup Required
                   </p>
-                  <p className="text-[14px] leading-relaxed text-amber-200/60">
+                  <p className="text-[13px] leading-relaxed text-amber-200/60 sm:text-[14px]">
                     The automated setup script is not yet ready. Please copy or symlink 
                     configuration files manually (see README for details).
                   </p>

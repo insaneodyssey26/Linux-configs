@@ -6,14 +6,14 @@ import { Magnetic } from "@/lib/animations";
 
 export function CtaSection() {
   return (
-    <section className="relative overflow-hidden border-t border-white/[0.04] py-20 md:py-24">
+    <section className="relative overflow-hidden border-t border-white/[0.04] py-16 md:py-24">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute bottom-0 left-1/2 h-[400px] w-[600px] -translate-x-1/2 bg-[#1793d1]/5 blur-3xl" />
       </div>
 
       <motion.div 
-        className="relative mx-auto max-w-6xl px-6 text-center"
+        className="relative mx-auto max-w-6xl px-4 sm:px-6 text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -29,7 +29,7 @@ export function CtaSection() {
           Ready to upgrade your setup?
         </motion.h2>
         <motion.p 
-          className="mx-auto mt-4 max-w-md text-lg text-white/50"
+          className="mx-auto mt-3 max-w-md text-base text-white/50 md:text-lg"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -43,14 +43,14 @@ export function CtaSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-8"
+          className="mt-6 md:mt-8"
         >
           <Magnetic strength={0.15}>
             <motion.a
               href="https://github.com/insaneodyssey26/Linux-configs"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-6 py-3 text-[15px] font-medium text-black"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black sm:px-6 sm:py-3 sm:text-[15px]"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -60,7 +60,7 @@ export function CtaSection() {
                 animate={{ translateX: ["-100%", "200%"] }}
                 transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
               />
-              <GitHub size={18} className="relative" />
+              <GitHub size={16} className="relative sm:size-18" />
               <span className="relative">Get started on GitHub</span>
             </motion.a>
           </Magnetic>

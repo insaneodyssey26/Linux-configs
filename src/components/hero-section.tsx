@@ -28,7 +28,7 @@ const item = {
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
+    <section className="relative overflow-hidden pt-20 pb-12 md:pt-32 md:pb-24">
       {/* Animated background */}
       <div className="pointer-events-none absolute inset-0">
         {/* Floating orbs */}
@@ -68,7 +68,7 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           className="mx-auto max-w-3xl text-center"
           variants={container}
@@ -77,14 +77,14 @@ export function HeroSection() {
         >
           {/* Badge */}
           <motion.div variants={item}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-[12px] font-medium text-white/60 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 text-[11px] font-medium text-white/60 backdrop-blur-sm sm:px-4 sm:text-[12px]">
               Open Source • MIT License
             </span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
-            className="mt-8 text-4xl font-semibold tracking-tight text-white md:text-6xl md:leading-[1.1]"
+            className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.1]"
             variants={item}
           >
             Curated dotfiles for a
@@ -96,7 +96,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <motion.p
-            className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/50 md:text-xl"
+            className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/50 sm:text-lg md:text-xl"
             variants={item}
           >
             Minimal, modern configuration files for Fish shell, Ghostty
@@ -105,13 +105,13 @@ export function HeroSection() {
 
           {/* CTAs */}
           <motion.div
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
             variants={item}
           >
             <Magnetic strength={0.15}>
               <motion.a
                 href="#configs"
-                className="group relative flex h-12 items-center gap-2 overflow-hidden rounded-full bg-white px-6 text-[15px] font-medium text-black"
+                className="group relative flex h-11 items-center gap-2 overflow-hidden rounded-full bg-white px-5 text-[14px] font-medium text-black sm:h-12 sm:px-6 sm:text-[15px]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -130,7 +130,7 @@ export function HeroSection() {
                 href="https://github.com/insaneodyssey26/Linux-configs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-12 items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.02] px-6 text-[15px] font-medium text-white/80 backdrop-blur-sm transition-all hover:border-white/[0.20] hover:bg-white/[0.05]"
+                className="group flex h-11 items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.02] px-5 text-[14px] font-medium text-white/80 backdrop-blur-sm transition-all hover:border-white/[0.20] hover:bg-white/[0.05] sm:h-12 sm:px-6 sm:text-[15px]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -143,7 +143,7 @@ export function HeroSection() {
 
         {/* Terminal Demo */}
         <motion.div
-          className="mt-16 md:mt-20"
+          className="mt-12 md:mt-20"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: easing.gentle }}

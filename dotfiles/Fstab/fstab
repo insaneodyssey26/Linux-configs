@@ -1,0 +1,19 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+UUID=AD4B-3A4C                            /boot          vfat    defaults,umask=0077 0 2
+UUID=32acc7ec-34c7-439f-afd6-c8efd8ee9e34 /              btrfs   subvol=/@,defaults,noatime,compress=zstd,commit=120 0 0
+UUID=32acc7ec-34c7-439f-afd6-c8efd8ee9e34 /home          btrfs   subvol=/@home,defaults,noatime,compress=zstd,commit=120 0 0
+UUID=32acc7ec-34c7-439f-afd6-c8efd8ee9e34 /root          btrfs   subvol=/@root,defaults,noatime,compress=zstd,commit=120 0 0
+UUID=32acc7ec-34c7-439f-afd6-c8efd8ee9e34 /srv           btrfs   subvol=/@srv,defaults,noatime,compress=zstd,commit=120 0 0
+UUID=32acc7ec-34c7-439f-afd6-c8efd8ee9e34 /var/cache     btrfs   subvol=/@cache,defaults,noatime,compress=zstd,commit=120 0 0
+UUID=32acc7ec-34c7-439f-afd6-c8efd8ee9e34 /var/tmp       btrfs   subvol=/@tmp,defaults,noatime,compress=zstd,commit=120 0 0
+UUID=32acc7ec-34c7-439f-afd6-c8efd8ee9e34 /var/log       btrfs   subvol=/@log,defaults,noatime,compress=zstd,commit=120 0 0
+tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+
+# Windows Partition - Using high-performance ntfs3 driver
+UUID=5A1AEDC41AED9D6F  /mnt/Windows  ntfs3  defaults,uid=1000,gid=1000,rw,force,nofail  0  0
