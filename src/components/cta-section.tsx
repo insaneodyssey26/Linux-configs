@@ -20,7 +20,7 @@ export function CtaSection() {
         transition={{ duration: 0.6 }}
       >
         <motion.h2 
-          className="text-2xl font-semibold tracking-tight text-white/90 md:text-3xl"
+          className="text-xl font-semibold tracking-tight text-white/90 sm:text-2xl md:text-3xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -29,7 +29,7 @@ export function CtaSection() {
           Ready to upgrade your setup?
         </motion.h2>
         <motion.p 
-          className="mx-auto mt-3 max-w-md text-base text-white/50 md:text-lg"
+          className="mx-auto mt-3 max-w-md text-base text-white/50 sm:text-lg"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -50,7 +50,7 @@ export function CtaSection() {
               href="https://github.com/insaneodyssey26/Linux-configs"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black sm:px-6 sm:py-3 sm:text-[15px]"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -60,7 +60,7 @@ export function CtaSection() {
                 animate={{ translateX: ["-100%", "200%"] }}
                 transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
               />
-              <GitHub size={16} className="relative sm:size-18" />
+              <GitHub size={16} className="relative" />
               <span className="relative">Get started on GitHub</span>
             </motion.a>
           </Magnetic>

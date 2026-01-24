@@ -66,9 +66,9 @@ export function Header() {
                 whileHover={{ rotate: [0, -10, 10, 0] }}
                 transition={{ duration: 0.4 }}
               >
-                <Terminal size={20} className="text-[#1793d1] transition-colors group-hover:text-[#1ca3e3] lg:size-22" />
+                <Terminal size={20} className="text-[#1793d1] transition-colors group-hover:text-[#1ca3e3]" />
               </motion.div>
-              <span className="text-[14px] font-medium tracking-[-0.01em] md:text-base lg:text-lg">
+              <span className="text-[14px] font-medium tracking-[-0.01em]">
                 linux configs
               </span>
             </Link>
@@ -168,7 +168,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl font-medium text-white/80 transition-colors hover:text-white sm:text-3xl"
+                    className="text-2xl font-medium text-white/80 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -185,9 +185,9 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="mt-2 flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base text-white/90 transition-all hover:bg-white/10 sm:px-6 sm:text-lg"
+                  className="mt-2 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-base text-white/90 transition-all hover:bg-white/10"
                 >
-                  <GitHub size={18} />
+                  <GitHub size={16} />
                   <span>View on GitHub</span>
                 </a>
               </motion.div>

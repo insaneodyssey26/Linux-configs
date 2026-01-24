@@ -48,10 +48,10 @@ export function InstallSection() {
               <span className="h-1 w-1 rounded-full bg-[#1793d1] sm:h-1.5 sm:w-1.5" />
               Installation
             </span>
-            <h2 className="text-2xl font-semibold tracking-tight text-white/90 md:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white/90 sm:text-3xl md:text-4xl">
               Get started in minutes
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-white/50 md:text-lg">
+            <p className="mt-3 text-base leading-relaxed text-white/50 sm:text-lg">
               Clone the repository, install the required tools, and manually
               symlink the configuration files to their proper locations.
             </p>

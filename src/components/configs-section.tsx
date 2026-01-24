@@ -32,7 +32,7 @@ export function ConfigsSection() {
             Configurations
           </motion.span>
           <motion.h2 
-            className="text-2xl font-semibold tracking-tight text-white/90 md:text-4xl"
+            className="text-2xl font-semibold tracking-tight text-white/90 sm:text-3xl md:text-4xl"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,7 +41,7 @@ export function ConfigsSection() {
             Everything you need
           </motion.h2>
           <motion.p 
-            className="mx-auto mt-3 max-w-lg text-base text-white/50 md:text-lg"
+            className="mx-auto mt-3 max-w-lg text-base text-white/50 sm:text-lg"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

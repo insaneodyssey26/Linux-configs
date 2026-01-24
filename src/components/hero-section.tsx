@@ -84,7 +84,7 @@ export function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.1]"
+            className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl md:leading-[1.1]"
             variants={item}
           >
             Curated dotfiles for a
@@ -111,7 +111,7 @@ export function HeroSection() {
             <Magnetic strength={0.15}>
               <motion.a
                 href="#configs"
-                className="group relative flex h-11 items-center gap-2 overflow-hidden rounded-full bg-white px-5 text-[14px] font-medium text-black sm:h-12 sm:px-6 sm:text-[15px]"
+                className="group relative flex h-11 items-center gap-2 overflow-hidden rounded-full bg-white px-5 text-[14px] font-medium text-black"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -130,11 +130,11 @@ export function HeroSection() {
                 href="https://github.com/insaneodyssey26/Linux-configs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-11 items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.02] px-5 text-[14px] font-medium text-white/80 backdrop-blur-sm transition-all hover:border-white/[0.20] hover:bg-white/[0.05] sm:h-12 sm:px-6 sm:text-[15px]"
+                className="group flex h-11 items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.02] px-5 text-[14px] font-medium text-white/80 backdrop-blur-sm transition-all hover:border-white/[0.20] hover:bg-white/[0.05]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <GitHub size={18} />
+                <GitHub size={16} />
                 <span>View on GitHub</span>
               </motion.a>
             </Magnetic>

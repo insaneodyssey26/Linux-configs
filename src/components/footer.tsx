@@ -24,12 +24,12 @@ export function Footer() {
           <div className="flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-6">
             <Link href="/" className="group flex items-center gap-2 text-white/60 transition-colors hover:text-white/80">
               <motion.div whileHover={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 0.4 }}>
-                <Terminal size={18} className="text-[#1793d1] md:size-20 lg:size-22" />
+                <Terminal size={18} className="text-[#1793d1]" />
               </motion.div>
-              <span className="text-[13px] font-medium md:text-[14px] lg:text-base">linux configs</span>
+              <span className="text-[13px] font-medium">linux configs</span>
             </Link>
             <span className="hidden h-4 w-px bg-white/10 md:block" />
-            <span className="text-[12px] text-white/30 md:text-[14px] lg:text-base">
+            <span className="text-[12px] text-white/30 sm:text-[13px]">
               Built by{" "}
               <a
                 href="https://github.com/insaneodyssey26"
@@ -44,12 +44,12 @@ export function Footer() {
 
           {/* Right */}
           <div className="flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-6">
-            <span className="text-[12px] text-white/20 md:text-[13px] lg:text-sm">© {currentYear}</span>
+            <span className="text-[11px] text-white/20 sm:text-[12px]">© {currentYear}</span>
             <a
               href="https://github.com/insaneodyssey26/Linux-configs/blob/main/LICENSE"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[12px] text-white/30 transition-colors hover:text-white/50 md:text-[14px] lg:text-base"
+              className="text-[12px] text-white/30 transition-colors hover:text-white/50 sm:text-[13px]"
             >
               MIT License
             </a>
@@ -57,10 +57,10 @@ export function Footer() {
               href="https://github.com/insaneodyssey26/Linux-configs"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[12px] text-white/30 transition-colors hover:text-white/50 md:text-[14px] lg:text-base"
+              className="flex items-center gap-2 text-[12px] text-white/30 transition-colors hover:text-white/50"
               whileHover={{ x: 2 }}
             >
-              <GitHub size={14} className="md:size-16 lg:size-18" />
+              <GitHub size={14} />
               <span>Repository</span>
             </motion.a>
           </div>
