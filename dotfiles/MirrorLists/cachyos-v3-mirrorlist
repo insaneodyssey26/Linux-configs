@@ -1,0 +1,19 @@
+######################################################
+##        CachyOS v3 Repository Mirrorlist          ##
+######################################################
+
+## Bangladesh
+Server = https://mirror.limda.net/cachy/repo/x86_64_v3/$repo
+
+## Singapore
+Server = https://sg.mirrors.cicku.me/cachyos/repo/x86_64_v3/$repo
+
+## Global CDN
+Server = https://cdn77.cachyos.org/repo/x86_64_v3/$repo
+Server = https://cdn.cachyos.org/repo/x86_64_v3/$repo
+
+## South Korea
+Server = https://mirror.funami.tech/cachy/repo/x86_64_v3/$repo
+
+## Germany
+Server = https://mirror.cachyos.org/repo/x86_64_v3/$repo

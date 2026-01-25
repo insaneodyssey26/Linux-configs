@@ -1,0 +1,22 @@
+######################################################
+##          CachyOS Repository Mirrorlist           ##
+######################################################
+
+## Bangladesh (Closest to West Bengal - 10 GBs)
+Server = https://mirror.limda.net/cachy/repo/$arch/$repo
+
+## Singapore (Best routing for Indian ISPs)
+Server = https://sg.mirrors.cicku.me/cachyos/repo/$arch/$repo
+
+## Vietnam 
+Server = https://mirror.meowsmp.net/cachyOS/repo/$arch/$repo
+
+## Global CDN (Cloudflare-backed)
+Server = https://cdn77.cachyos.org/repo/$arch/$repo
+Server = https://cdn.cachyos.org/repo/$arch/$repo
+
+## South Korea
+Server = https://mirror.funami.tech/cachy/repo/$arch/$repo
+
+## Germany (Official Origin)
+Server = https://mirror.cachyos.org/repo/$arch/$repo

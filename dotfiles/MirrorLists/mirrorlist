@@ -1,0 +1,18 @@
+######################################################
+##          Arch Linux Main Mirrorlist              ##
+######################################################
+
+## 1. Global CDN (Cloudflare/Kolkata Node)
+Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch
+
+## 2. India (Sahil - Usually very stable)
+Server = https://mirror.sahil.world/archlinux/$repo/os/$arch
+
+## 3. Singapore (Cicku - Excellent peering)
+Server = https://sg.mirrors.cicku.me/archlinux/$repo/os/$arch
+
+## 4. India (Niranjan)
+Server = https://in.arch.niranjan.co/$repo/os/$arch
+
+## 5. Bangladesh (Limda - Closest to you)
+Server = https://mirror.limda.net/archlinux/$repo/os/$arch

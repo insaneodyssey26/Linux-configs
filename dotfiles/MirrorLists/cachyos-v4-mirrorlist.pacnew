@@ -1,0 +1,41 @@
+######################################################
+####                                              ####
+####        CachyOS Repository Mirrorlist         ####
+####                                              ####
+######################################################
+## CDN77 (World Wide Datacenters)
+Server = https://cdn77.cachyos.org/repo/$arch_v4/$repo
+## Tebi CDN (Germany, USA, SG)
+Server = https://cdn-1.cachyos.org/$arch_v4/$repo
+## Cloudflare R2
+Server = https://cdn.cachyos.org/repo/$arch_v4/$repo
+## Germany
+Server = https://aur.cachyos.org/repo/$arch_v4/$repo
+Server = https://mirror.cachyos.org/repo/$arch_v4/$repo
+## USA Mirror much thanks to corpdecker!
+Server = https://us.cachyos.org/repo/$arch_v4/$repo
+## India Mirror much thanks to https://github.com/albonycal
+## Disabled due issues at installation
+## Server = https://mirror.albony.xyz/cachylinux/repo/$arch_v4/$repo
+## France Mirror much thanks to Antoine Viallon (aviallon)
+Server = https://mirror.lesviallon.fr/cachy/repo/$arch_v4/$repo
+## Russia Mirror # Removed till sync issue is resolved
+# Server = https://mirror.truenetwork.ru/cachy/repo/$arch_v4/$repo
+## Norway Mirror much thanks to QuadFeed
+Server = https://mirror.fast0ne.com/repo/$arch_v4/$repo
+## Norway Mirror much thanks to innoix
+Server = https://no.mirror.cx/cachyos/repo/$arch_v4/$repo
+## South Korea much thanks to Mihate Hiura!
+Server = https://mirror.funami.tech/cachy/$arch_v4/$repo
+## Austria Mirror much thanks to Soulharsh!
+Server = https://at.cachyos.org/repo/$arch_v4/$repo
+## Germany Mirror much thanks to Soulharsh!
+Server = https://de-nue.soulharsh007.dev/cachyos/repo/$arch_v4/$repo
+## China Mirror 10GBs much thanks to eScience Center, Nanjing University!
+Server = https://mirror.nju.edu.cn/cachyos/repo/$arch_v4/$repo
+## China Mirror much thanks to University of Science and Technology of China!
+Server = https://mirrors.ustc.edu.cn/cachyos/repo/$arch_v4/$repo
+## Hong Kong Mirror much thanks to Saren!
+Server = https://cachy-mirror.wtako.net/repo/$arch_v4/$repo
+## Ontario, Canada Mirror much thanks to Bobby!
+Server = https://mirror.scholarshub.world/repo/$arch_v4/$repo
