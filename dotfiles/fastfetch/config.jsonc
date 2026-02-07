@@ -2,9 +2,9 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "source": "Arch",
-        "type": "small",
-        "padding": { "top": 1 }
+        "source": "arch",  
+        "type":"small",
+        "padding": { "top": 2 }  
     },
     "display": { "separator": " " },
     "modules": [
@@ -18,8 +18,7 @@
         { "key": "│ {#33}󰏖 pkgs    {#keys}│", "type": "packages" },
         { 
             "key": "│ {#34}{icon} distro  {#keys}│", 
-            "type": "os", 
-            "format": "Arch Linux {12}" 
+            "type": "os"
         },
         { "key": "│ {#35} kernel  {#keys}│", "type": "kernel" },
         { "key": "│ {#36} wm      {#keys}│", "type": "wm" },
