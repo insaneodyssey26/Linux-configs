@@ -1,0 +1,91 @@
+[window]
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+decorations = "Full"
+opacity = 0.8
+blur = true
+
+[window.dimensions]
+columns = 115
+lines = 28
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Italic"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 500
+blink_timeout = 1
+
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[scrolling]
+history = 2000
+multiplier = 1
+
+[selection]
+save_to_clipboard = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = '#0a0e14'
+foreground = '#ffffff'
+[colors.cursor]
+text = '#0a0e14'
+cursor = '#5ea1ff'
+
+[colors.normal]
+black   = '#1e2124'
+red     = '#ff3333'
+green   = '#33ff77'
+yellow  = '#ffcc00'
+blue    = '#5ea1ff'
+magenta = '#ff77ff'
+cyan    = '#00ffff'
+white   = '#dcd7ba'
+
+[colors.bright]
+black   = '#5c6370'
+red     = '#ff6666'
+green   = '#66ff99'
+yellow  = '#ffdb4d'
+blue    = '#82b1ff'
+magenta = '#ff99ff'
+cyan    = '#66ffff'
+white   = '#ffffff'
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Control"
+action = "SpawnNewInstance"
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Control"
+action = "Quit"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
