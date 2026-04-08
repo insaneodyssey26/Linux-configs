@@ -1,88 +1,103 @@
+#!/bin/bash
+
+# --- MPV Master Reinstall Script for Asus TUF A15 (2026 Edition) ---
+# Optimized for: Ryzen 7 7435HS + RTX 4050 + Adwaita Sans
+
 echo "Starting MPV Setup..."
 
-# 1. INSTALL PACKAGES
-echo "Installing core packages and UI components..."
-sudo pacman -S --needed mpv inter-font wget
-paru -S --needed mpv-uosc mpv-thumbfast-git
+# 1. Install System Packages
+echo "Installing system packages..."
+sudo pacman -S --needed mpv libva-nvidia-driver unzip wget git ttf-adwaita-sans \
+    ffmpegthumbnailer gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
-# 2. CREATE DIRECTORY STRUCTURE
-echo "Creating folder structure..."
-mkdir -p ~/.config/mpv/shaders ~/.config/mpv/scripts ~/.config/mpv/script-opts ~/.config/mpv/fonts
+# 2. Cleanup and Setup Folders
+echo "Preparing directories..."
+rm -rf ~/.config/mpv/scripts/uosc
+mkdir -p ~/.config/mpv/scripts ~/.config/mpv/fonts ~/.config/mpv/script-opts
 
-# 3. DOWNLOAD SHADERS (ArtCNN)
-echo "Downloading Neural Network shaders..."
-wget -q --show-progress -O ~/.config/mpv/shaders/ArtCNN_C4F16.glsl \
-    https://github.com/Artoriuz/ArtCNN/releases/latest/download/ArtCNN_C4F16.glsl
+# 3. Install uosc (The UI)
+echo "Installing uosc (UI)..."
+wget -q --show-progress https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip
+unzip -qo uosc.zip -d ~/.config/mpv/
+rm uosc.zip
 
-# 4. CREATE CONFIGS (Using 'cat' to write the files directly)
-echo "Writing mpv.conf (NVIDIA Wayland Stable)..."
+# 4. Install thumbfast (Timeline Thumbnails)
+echo "Installing thumbfast..."
+wget -P ~/.config/mpv/scripts/ https://raw.githubusercontent.com/po5/thumbfast/master/thumbfast.lua
+
+# 5. Install mpv-cut (Video Cutting Tool)
+echo "Installing mpv-cut..."
+git clone -b release --single-branch "https://github.com/familyfriendlymikey/mpv-cut.git" ~/.config/mpv/scripts/mpv-cut
+
+# 6. Write mpv.conf (Performance & Hardware Acceleration)
+echo "Writing mpv.conf..."
 cat <<EOF > ~/.config/mpv/mpv.conf
-# CORE STABILITY
-wayland-internal-vsync=yes
-vo=gpu-next
-gpu-api=opengl
-hwdec=nvdec
-save-position-on-quit=yes
-
-# AESTHETICS
-no-border
-autofit-larger=90%x90%
-cursor-autohide=500
+# --- UI & Aesthetics ---
 osc=no
+border=no
 osd-bar=no
+cursor-autohide=1000
+osd-font='Adwaita Sans'
+osd-font-size=30
 
-# MOTION & QUALITY
+# --- Hardware Acceleration (NVIDIA + Wayland) ---
+vo=gpu
+gpu-api=vulkan
+hwdec=auto-safe
+profile=gpu-hq
 video-sync=display-resample
-interpolation=yes
-tscale=oversample
-glsl-shaders="~/.config/mpv/shaders/ArtCNN_C4F16.glsl"
+
+# --- High-End Scaling ---
+scale=ewa_lanczossharp
+cscale=ewa_lanczossharp
+
+# --- Behavior ---
+save-position-on-quit=yes
+keep-open=yes
+config=yes
 EOF
 
-echo "Writing input.conf (VLC-Style Keyboard Shortcuts)..."
+# 7. Write input.conf (Keybindings)
+echo "Writing input.conf..."
 cat <<EOF > ~/.config/mpv/input.conf
-# VOLUME
-UP    add volume 2
-DOWN  add volume -2
-m     cycle mute
+# --- UOSC Controls ---
+mbtn_right  script-binding uosc/menu
+s           script-binding uosc/subtitles
+a           script-binding uosc/audio
+o           script-binding uosc/open-file
+p           script-binding uosc/items
 
-# CORE PLAYBACK
-SPACE cycle pause
-f     cycle fullscreen
-ESC   set fullscreen no
-s     stop
-n     playlist-next
-p     playlist-prev
-
-# TIERED SEEKING
+# --- Basic Navigation ---
+SPACE       cycle pause
 RIGHT       seek  5
 LEFT        seek -5
-SHIFT+RIGHT seek  3
-SHIFT+LEFT  seek -3
-ALT+RIGHT   seek  10
-ALT+LEFT    seek -10
-CTRL+RIGHT  seek  60
-CTRL+LEFT   seek -60
-CTRL+ALT+RIGHT seek 300
-CTRL+ALT+LEFT  seek -300
+UP          add volume  5
+DOWN        add volume -5
 
-# EXTRAS
-v cycle sub
-b cycle audio
-S screenshot
+# --- The Cut Feature ---
+c           script-binding mpv_cut/start-stop-cut
 EOF
 
-echo "Writing uosc.conf (Island Aesthetic)..."
+# 8. Write uosc.conf (UI Styling)
+echo "🖌️ Writing script-opts/uosc.conf..."
 cat <<EOF > ~/.config/mpv/script-opts/uosc.conf
-color=foreground=ffffff,background=000000,selection=3d5afe
-opacity=0.8
-thumbnails=yes
-top_bar=on_hover
+# --- The Layout Fix ---
+ui_scale=0.7
+font_scale=0.8
+font_bold=Adwaita Sans Semibold
+
+# --- Spacing ---
+timeline_size=32
+controls_size=38
+menu_item_height=36
+menu_min_width=260
+
+# --- Appearance (Signature Blue #3b82f6) ---
+color=foreground=3b82f6,background=000000,text=ffffff
 EOF
 
-# 5. LINK UI SCRIPTS & FONTS
-echo "Linking uosc UI elements..."
-ln -sf /usr/share/mpv/scripts/uosc ~/.config/mpv/scripts/
-ln -sf /usr/share/mpv/fonts/uosc_icons.otf ~/.config/mpv/fonts/
-ln -sf /usr/share/mpv/fonts/uosc_textures.ttf ~/.config/mpv/fonts/
+# 9. Final Touches
+echo "Refreshing font cache..."
+fc-cache -fv
 
-echo "✅ SETUP COMPLETE! Launch MPV and enjoy the premium look."
+echo "DONE! MPV is now installed."
